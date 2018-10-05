@@ -11,10 +11,20 @@ const balance = (state = 0, action) => {
       balance = action.balance;
       break;
     case constants.DEPOSIT:
-      balance = state + action.deposit;
+      if (!isNaN(action.deposit)) {
+        balance = state + action.deposit;
+      } else {
+        alert("Please enter a number");
+        balance = state;
+      }
       break;
     case constants.WITHDRAW:
-      balance = state - action.withdrawal;
+      if (!isNaN(action.withdrawal)) {
+        balance = state - action.withdrawal;
+      } else {
+        alert("Please enter a number");
+        balance = state;
+      }
       break;
     default:
       balance = parseInt(read_cookie(BALANCE_COOKIE), 10) || state;

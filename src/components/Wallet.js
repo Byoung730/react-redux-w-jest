@@ -6,15 +6,21 @@ export class Wallet extends Component {
   constructor() {
     super();
 
-    this.state = { balance: undefined };
+    this.state = { balance: 0 };
   }
 
   updateBalance = event =>
     this.setState({ balance: parseInt(event.target.value) });
 
-  deposit = () => this.props.deposit(this.state.balance);
+  deposit = () => {
+    this.props.deposit(this.state.balance);
+    this.setState({ balance: 0 });
+  };
 
-  withdraw = () => this.props.withdraw(this.state.balance);
+  withdraw = () => {
+    this.props.withdraw(this.state.balance);
+    this.setState({ balance: 0 });
+  };
 
   render() {
     return (
