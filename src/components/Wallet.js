@@ -14,12 +14,12 @@ export class Wallet extends Component {
 
   deposit = () => {
     this.props.deposit(this.state.balance);
-    this.setState({ balance: 0 });
+    this.setState({ balance: "" });
   };
 
   withdraw = () => {
     this.props.withdraw(this.state.balance);
-    this.setState({ balance: 0 });
+    this.setState({ balance: "" });
   };
 
   render() {
